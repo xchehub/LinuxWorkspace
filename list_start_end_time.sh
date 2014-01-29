@@ -11,3 +11,5 @@ do
   echo $file $xxline $xxxline
 done
 
+# grep and replace
+grep -rl ',execTransact,' ./ | xargs sed -i 's/,execTransact,/,system,/g'
