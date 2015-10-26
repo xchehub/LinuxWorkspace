@@ -12,4 +12,4 @@ do
 done
 
 # grep and replace
-grep -rl ',execTransact,' ./ | xargs sed -i 's/,execTransact,/,system,/g'
+grep -rl ',oldText,' ./ | xargs sed -i 's/,oldText,/,newTest,/g'
