@@ -43,3 +43,7 @@
 
 #14. Top 10 files pass the output to the head command
 ~$ du -h -d1 | sort -hr | head
+
+#15. Linux讓記錄檔內容歸零的方法
+#如果要將記錄內容清空，移除再建立是一個方法，但不是很好的方法，可以採用下面這個指令
+~$ cat /dev/null > /var/log/log_filename
