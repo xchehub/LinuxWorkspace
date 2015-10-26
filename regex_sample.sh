@@ -1,2 +1,2 @@
 # find string between double quotes
-LNAG=C egrep -ri '(\"[^\"]*\")' ./
+LANG=C egrep -ri '(\"[^\"]*\")' ./
