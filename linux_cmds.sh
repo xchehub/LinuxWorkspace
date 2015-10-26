@@ -37,3 +37,9 @@
 
 #12. sort du -h output by size
 ~$ du -h -d1 | sort -h
+
+#13. reverse the result of comparisons pass the -r option
+~$ du -h -d1 | sort -h -r
+
+#14. Top 10 files pass the output to the head command
+~$ du -h -d1 | sort -hr | head
