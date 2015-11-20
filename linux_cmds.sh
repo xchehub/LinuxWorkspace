@@ -47,3 +47,8 @@
 #15. Linux讓記錄檔內容歸零的方法
 #如果要將記錄內容清空，移除再建立是一個方法，但不是很好的方法，可以採用下面這個指令
 ~$ cat /dev/null > /var/log/log_filename
+
+#16 get svn log information
+~$ svn log | sed -n '/username/,/-----$/ p'
+~$ svn log -r {2015-01-01}:{2015-12-31} | sed -n '/username/,/-----$/ p'
+~$ svn log --xml | grep author | sort -u | perl -pe 's/.*>(.*?)<.*/$1 = /'
