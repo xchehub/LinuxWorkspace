@@ -25,7 +25,8 @@
 ~$ cat ~/Desktop/lsof.log | awk '{ print $2 " " $1; }' | sort -rn | uniq -c | sort -rn | head -20
 ~$ vim ~/Desktop/lsof.log
 
-#8. get main board model
+#8. get main board model, use dmidecode
+~$ sudo dmidecode
 
 #9. get cpu info
 
