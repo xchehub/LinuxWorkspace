@@ -55,4 +55,4 @@
 ~$ svn log --xml | grep author | sort -u | perl -pe 's/.*>(.*?)<.*/$1 = /'
 
 #17 move file by date
-find . -maxdepth 1 -type f -mtime +40 -name "XXXxxx_*" -exec mv {} ./tool_backup/2015/ \;
+~$ find . -maxdepth 1 -type f -mtime +40 -name "XXXxxx_*" -exec mv {} ./tool_backup/2015/ \;
