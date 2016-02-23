@@ -56,3 +56,23 @@
 
 #17 move file by date
 ~$ find . -maxdepth 1 -type f -mtime +40 -name "XXXxxx_*" -exec mv {} ./tool_backup/2015/ \;
+
+#18. find out screen resolution from a shell script
+~$ xdpyinfo | grep dimensions
+
+#19. Netcat or nc is a networking utility for debugging and investigating the network.
+#    Netcat Cheat Sheet 
+#    https://www.sans.org/security-resources/sec560/netcat_cheat_sheet_v1.pdf
+~$ nc
+
+#20. Execute Commands After You Exit From a Shell Prompt 
+~$ nohup
+
+#21. displays the last few lines of a file.
+~$ tail
+
+#22. extract a vertical selection of columns or fields from one or more Unix or Linux files.
+~$ cut
+
+#23. sort/order lines in text files
+~$ sort
