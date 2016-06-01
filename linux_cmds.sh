@@ -76,3 +76,9 @@
 
 #23. sort/order lines in text files
 ~$ sort
+
+#24 find find depends on current working directory.
+~$ find $(pwd) -name *.* -print
+
+#25 pdf compress
+~$ gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/default -dNOPAUSE -dQUIET -dBATCH -dDetectDuplicateImages -dCompressFonts=true -r150 -sOutputFile=output.pdf input.pdf
