@@ -82,3 +82,6 @@
 
 #25 pdf compress
 ~$ gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/default -dNOPAUSE -dQUIET -dBATCH -dDetectDuplicateImages -dCompressFonts=true -r150 -sOutputFile=output.pdf input.pdf
+
+#26. dump svn commit comment to xml format fot import inexcel
+~$ svn log -l 100 --xml > repository_log.xml
