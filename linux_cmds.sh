@@ -81,6 +81,7 @@
 ~$ find $(pwd) -name *.* -print
 
 #25 pdf compress
+#If the -dPDFSETTINGS=/screen setting is low quality, -dPDFSETTINGS=/ebook for better quality. For the high quality default -dPDFSETTINGS=/prepress.
 ~$ gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/default -dNOPAUSE -dQUIET -dBATCH -dDetectDuplicateImages -dCompressFonts=true -r150 -sOutputFile=output.pdf input.pdf
 
 #26. dump svn commit comment to xml format fot import inexcel
