@@ -88,7 +88,12 @@
 ~$ svn log -l 100 --xml > repository_log.xml
 
 #27. count csv file columns
-head -1 some_file.csv | sed 's/[^,]//g' | wc -c
+~$ head -1 some_file.csv | sed 's/[^,]//g' | wc -c
 
 #28. remove csv file columns
-cut -d, -f1-100 some_file.csv > some_file_test.csv
+~$ cut -d, -f1-100 some_file.csv > some_file_test.csv
+
+#29 delete mount point
+~$ sudo umount mountpoint
+## Then edit /etc/fstab and remove the mountpoint from there.
+~$ sudo rmdir mountpoint
