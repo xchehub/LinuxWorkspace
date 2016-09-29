@@ -12,3 +12,6 @@ SELECT HOUR( db_update_time ) AS h, COUNT( * )
 FROM  `some_table` 
 WHERE  `db_update_time` >  '2016-03-03'
 GROUP BY h
+
+// dump mysql table structure without data with a SQL query?
+SHOW CREATE TABLE MyTablename
