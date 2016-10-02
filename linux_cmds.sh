@@ -97,3 +97,6 @@
 ~$ sudo umount mountpoint
 ## Then edit /etc/fstab and remove the mountpoint from there.
 ~$ sudo rmdir mountpoint
+
+#30 replace single quotes with space in sed
+~$ sed "s/'/ /g" myfile.txt
