@@ -15,3 +15,7 @@ GROUP BY h
 
 // dump mysql table structure without data with a SQL query?
 SHOW CREATE TABLE MyTablename
+
+// remove new line characters from data rows in mysql
+update app_category SET category = TRIM(TRAILING '\n' FROM category);
+UPDATE app_category SET category = REPLACE(REPLACE(category, '\r', ''), '\n', '');
