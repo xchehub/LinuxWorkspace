@@ -100,3 +100,6 @@
 
 #30 replace single quotes with space in sed
 ~$ sed "s/'/ /g" myfile.txt
+
+#31 Change the system folder name back to English
+~$ LANG=C xdg-user-dirs-update --force
