@@ -103,3 +103,7 @@
 
 #31 Change the system folder name back to English
 ~$ LANG=C xdg-user-dirs-update --force
+
+#32 borad message to all login users
+~$ echo "message" | wall
+
