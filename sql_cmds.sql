@@ -26,3 +26,23 @@ SELECT TABLE_SCHEMA, TABLE_NAME,
     round(((DATA_LENGTH + INDEX_LENGTH) / 1024 / 1024), 2) As "Approximate size (MB)", DATA_FREE 
     FROM information_schema.TABLES
     WHERE TABLE_SCHEMA NOT IN ('mysql', 'information_schema', 'performance_schema'); 
+    
+# List database status
+# output 
+# +--------+----------+----------+----------+------------+
+# | ENGINE | Data MB  | Index MB | Total MB | Num Tables |
+# +--------+----------+----------+----------+------------+
+# | NULL   |     NULL |     NULL |     NULL |         18 |
+# | CSV    |      0.0 |      0.0 |      0.0 |          4 |
+# | InnoDB | 114932.8 | 112355.5 | 227288.2 |        103 |
+# | MyISAM |      2.5 |      2.3 |      4.8 |          5 |
+# +--------+----------+----------+----------+------------+
+# 4 rows in set (0.66 sec)
+SELECT  ENGINE,
+    ROUND(SUM(data_length) /1024/1024, 1) AS "Data MB",
+    ROUND(SUM(index_length)/1024/1024, 1) AS "Index MB",
+    ROUND(SUM(data_length + index_length)/1024/1024, 1) AS "Total MB",
+    COUNT(*) "Num Tables"
+FROM  INFORMATION_SCHEMA.TABLES
+WHERE  table_schema not in ("information_schema", "PERFORMANCE_SCHEMA", "SYS_SCHEMA", "ndbinfo")
+GROUP BY  ENGINE;
