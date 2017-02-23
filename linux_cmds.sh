@@ -107,3 +107,5 @@
 #32 borad message to all login users
 ~$ echo "message" | wall
 
+#33 real time watching Nvidia GPUs status
+~$ sudo watch nvidia-smi
