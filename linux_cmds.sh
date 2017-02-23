@@ -63,7 +63,10 @@
 #19. Netcat or nc is a networking utility for debugging and investigating the network.
 #    Netcat Cheat Sheet 
 #    https://www.sans.org/security-resources/sec560/netcat_cheat_sheet_v1.pdf
-~$ nc
+# send file 
+~$ nc xxx.xxx.xxx.xxx xxxx < file
+# retrive file
+~$ nc -l xxxx > file
 
 #20. Execute Commands After You Exit From a Shell Prompt 
 ~$ nohup
@@ -109,3 +112,4 @@
 
 #33 real time watching Nvidia GPUs status
 ~$ sudo watch nvidia-smi
+
