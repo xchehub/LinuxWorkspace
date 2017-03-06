@@ -46,3 +46,13 @@ SELECT  ENGINE,
 FROM  INFORMATION_SCHEMA.TABLES
 WHERE  table_schema not in ("information_schema", "PERFORMANCE_SCHEMA", "SYS_SCHEMA", "ndbinfo")
 GROUP BY  ENGINE;
+
+# concate two column
+select concat(id, '_',xxxxx_id) from xxxxx_data.xxxxx_map
+
+# substring
+select substr(xxxxx_id, 100), id from xxxxx_data.xxxxx_map
+
+# concate group by result
+SELECT xxxxx_id, GROUP_CONCAT(xxxxx_map_id SEPARATOR ',') FROM xxxxx_data.xxxxx_rate GROUP BY xxxxx_id
+
