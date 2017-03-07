@@ -56,3 +56,15 @@ select substr(xxxxx_id, 100), id from xxxxx_data.xxxxx_map
 # concate group by result
 SELECT xxxxx_id, GROUP_CONCAT(xxxxx_map_id SEPARATOR ',') FROM xxxxx_data.xxxxx_rate GROUP BY xxxxx_id
 
+# process list
+SHOW PROCESSLIST;
+
+# clone a table ref.https://blog.longwin.com.tw/2013/08/mysql-copy-table-command-2013/
+create tabel xxxxx like yyyyy;
+insert into xxxxx select * from yyyyy;
+
+# 
+SHOW SESSION VARIABLES LIKE 'wait_timeout';
+
+
+
