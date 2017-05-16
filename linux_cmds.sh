@@ -106,10 +106,12 @@
 
 #31 Change the system folder name back to English
 ~$ LANG=C xdg-user-dirs-update --force
-
+php -S 127.0.0.1:8252 -t .
 #32 borad message to all login users
 ~$ echo "message" | wall
 
 #33 real time watching Nvidia GPUs status
 ~$ sudo watch nvidia-smi
 
+# run php in local, php 7
+~$ php -S 127.0.0.1:<port> -t .
