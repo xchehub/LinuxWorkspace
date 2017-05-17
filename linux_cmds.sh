@@ -115,3 +115,7 @@ php -S 127.0.0.1:8252 -t .
 
 # run php in local, php 7
 ~$ php -S 127.0.0.1:<port> -t .
+
+# Find all files with size greater than XXXX
+~$ find ./ -size +10M
+
