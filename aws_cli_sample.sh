@@ -13,7 +13,8 @@
 
 #5. upload file to S3 bucket
 #config bucket correctly first
-curl -L -X PUT --header "x-amz-acl: bucket-owner-full-control" -T "<path to compressed file>" "https://uploads-us-west-2.s3.amazonaws.com/<publisher name>/<filename>"
+~$ curl -L -X PUT --header "x-amz-acl: bucket-owner-full-control" -T "<path to compressed file>" "https://uploads-us-west-2.s3.amazonaws.com/<publisher name>/<filename>"
+~$ curl --request PUT --upload-file "FILE" "https://s3.amazonaws.com/BUCKET_NAME/" -H "x-amz-acl: bucket-owner-full-control"
 # by html form ref. http://docs.aws.amazon.com/AmazonS3/latest/dev/HTTPPOSTExamples.html
 
 
