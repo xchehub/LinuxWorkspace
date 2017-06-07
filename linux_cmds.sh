@@ -121,3 +121,8 @@ php -S 127.0.0.1:8252 -t .
 
 # Query localhost public IP, diff from ifconfig, it will query IP address for connect outside in NAT env. 查詢本地機器公開 IP 位址的指令, 不同於 ifconfig，它可以在 NAT 的環境中查詢到與外部連線時的 IP 位址。
 ~$ wget http://ipinfo.io/ip -qO -
+
+# get system reboot shutdown time
+~$ last -x | grep shutdown | less
+~$ last | grep reboot
+
