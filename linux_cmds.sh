@@ -113,16 +113,18 @@ php -S 127.0.0.1:8252 -t .
 #33 real time watching Nvidia GPUs status
 ~$ sudo watch nvidia-smi
 
-# run php in local, php 7
+#34 run php in local, php 7
 ~$ php -S 127.0.0.1:<port> -t .
 
-# Find all files with size greater than XXXX
+#35 Find all files with size greater than XXXX
 ~$ find ./ -size +10M
 
-# Query localhost public IP, diff from ifconfig, it will query IP address for connect outside in NAT env. 查詢本地機器公開 IP 位址的指令, 不同於 ifconfig，它可以在 NAT 的環境中查詢到與外部連線時的 IP 位址。
+#36 Query localhost public IP, diff from ifconfig, it will query IP address for connect outside in NAT env. 查詢本地機器公開 IP 位址的指令, 不同於 ifconfig，它可以在 NAT 的環境中查詢到與外部連線時的 IP 位址。
 ~$ wget http://ipinfo.io/ip -qO -
 
-# get system reboot shutdown time
+#37 get system reboot shutdown time
 ~$ last -x | grep shutdown | less
 ~$ last | grep reboot
 
+#38 integrate mv command after find command result
+~$ find path_A -name '*AAA*' -exec mv -t path_B {} +
