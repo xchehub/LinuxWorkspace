@@ -131,3 +131,9 @@ php -S 127.0.0.1:8252 -t .
 
 #39 kill processes with partial name?
 ~$ pkill -f pattern
+
+#40 see process names
+~$ pgrep -l xxxxx
+
+#41 see full command lines
+~$ pgrep -a xxxxx
