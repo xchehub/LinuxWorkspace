@@ -128,3 +128,6 @@ php -S 127.0.0.1:8252 -t .
 
 #38 integrate mv command after find command result
 ~$ find path_A -name '*AAA*' -exec mv -t path_B {} +
+
+#39 kill processes with partial name?
+~$ pkill -f pattern
