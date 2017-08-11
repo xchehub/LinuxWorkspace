@@ -137,3 +137,6 @@ php -S 127.0.0.1:8252 -t .
 
 #41 see full command lines
 ~$ pgrep -a xxxxx
+
+#42 check apt update history
+~$ less /var/log/apt/history.log
