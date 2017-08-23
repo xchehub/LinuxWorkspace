@@ -66,7 +66,7 @@ insert into xxxxx select * from yyyyy;
 # 
 SHOW SESSION VARIABLES LIKE 'wait_timeout';
 
--- Making sense of INNODB buffer pool stats
+# Making sense of INNODB buffer pool stats
 -- https://dba.stackexchange.com/questions/56494/making-sense-of-innodb-buffer-pool-stats
 -- Buffer pool size is in pages not bytes.
 -- Buffer Pool size in GB
@@ -104,6 +104,5 @@ mysql> SELECT CONCAT(FORMAT(DirtyPages*100.0/TotalPages,2),' %') BufferPoolDirty
 -- Other information
 mysql> SHOW GLOBAL STATUS LIKE 'Innodb_buffer_pool%';
 
-
-
-
+# Convert latin1 to utf8
+mysql> select column, convert(cast(convert(column using latin1) as binary) using utf8) from table;
