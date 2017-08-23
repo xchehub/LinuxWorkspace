@@ -66,5 +66,44 @@ insert into xxxxx select * from yyyyy;
 # 
 SHOW SESSION VARIABLES LIKE 'wait_timeout';
 
+-- Making sense of INNODB buffer pool stats
+-- https://dba.stackexchange.com/questions/56494/making-sense-of-innodb-buffer-pool-stats
+-- Buffer pool size is in pages not bytes.
+-- Buffer Pool size in GB
+mysql> SELECT FORMAT(BufferPoolPages*PageSize/POWER(1024,3),2) BufferPoolDataGB FROM
+    -> (SELECT variable_value BufferPoolPages FROM information_schema.global_status
+    -> WHERE variable_name = 'Innodb_buffer_pool_pages_total') A,
+    -> (SELECT variable_value PageSize FROM information_schema.global_status
+    -> WHERE variable_name = 'Innodb_page_size') B;
+-- the amount of data in the Buffer Pool size in GB
+mysql> SELECT FORMAT(BufferPoolPages*PageSize/POWER(1024,3),2) BufferPoolDataGB FROM
+    -> (SELECT variable_value BufferPoolPages FROM information_schema.global_status
+    -> WHERE variable_name = 'Innodb_buffer_pool_pages_data') A,
+    -> (SELECT variable_value PageSize FROM information_schema.global_status
+    -> WHERE variable_name = 'Innodb_page_size') B;
+-- the percentage of the Buffer Pool in use
+mysql> SELECT CONCAT(FORMAT(DataPages*100.0/TotalPages,2),' %') BufferPoolDataPercentage FROM
+    -> (SELECT variable_value DataPages FROM information_schema.global_status
+    -> WHERE variable_name = 'Innodb_buffer_pool_pages_data') A,
+    -> (SELECT variable_value TotalPages FROM information_schema.global_status
+    -> WHERE variable_name = 'Innodb_buffer_pool_pages_total') B;
+-- Modified db pages is the number of pages in the Buffer Pool that have to be written back to the database. 
+-- They are also referred to as dirty pages.
+-- the Space Taken Up by Dirty Pages
+mysql> SELECT FORMAT(DirtyPages*PageSize/POWER(1024,3),2) BufferPoolDirtyGB FROM
+    -> (SELECT variable_value DirtyPages FROM information_schema.global_status
+    -> WHERE variable_name = 'Innodb_buffer_pool_pages_dirty') A,
+    -> (SELECT variable_value PageSize FROM information_schema.global_status
+    -> WHERE variable_name = 'Innodb_page_size') B;
+-- the Percentage of Dirty Pages
+mysql> SELECT CONCAT(FORMAT(DirtyPages*100.0/TotalPages,2),' %') BufferPoolDirtyPercentage FROM
+    -> (SELECT variable_value DirtyPages FROM information_schema.global_status
+    -> WHERE variable_name = 'Innodb_buffer_pool_pages_dirty') A,
+    -> (SELECT variable_value TotalPages FROM information_schema.global_status
+    -> WHERE variable_name = 'Innodb_buffer_pool_pages_total') B;
+-- Other information
+mysql> SHOW GLOBAL STATUS LIKE 'Innodb_buffer_pool%';
+
+
 
 
