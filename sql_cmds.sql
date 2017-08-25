@@ -106,3 +106,22 @@ mysql> SHOW GLOBAL STATUS LIKE 'Innodb_buffer_pool%';
 
 # Convert latin1 to utf8
 mysql> select column, convert(cast(convert(column using latin1) as binary) using utf8) from table;
+
+# mysql innodb_buffer_pool_size
+-- https://dba.stackexchange.com/questions/27328/how-large-should-be-mysql-innodb-buffer-pool-size
+-- How large should be mysql innodb_buffer_pool_size?
+-- RIBPS, Recommended InnoDB Buffer Pool Size based on all InnoDB Data and Indexes with an additional 60%.
+mysql> SELECT CEILING(Total_InnoDB_Bytes*1.6/POWER(1024,3)) RIBPS FROM
+    -> (SELECT SUM(data_length+index_length) Total_InnoDB_Bytes
+    -> FROM information_schema.tables WHERE engine='InnoDB') A;
+-- actual GB of memory is in use by InnoDB Data in the InnoDB Buffer Pool at this moment.
+mysql> SELECT (PagesData*PageSize)/POWER(1024,3) DataGB FROM
+    -> (SELECT variable_value PagesData
+    -> FROM information_schema.global_status
+    -> WHERE variable_name='Innodb_buffer_pool_pages_data') A,
+    -> (SELECT variable_value PageSize
+    -> FROM information_schema.global_status
+    -> WHERE variable_name='Innodb_page_size') B;
+    
+
+
