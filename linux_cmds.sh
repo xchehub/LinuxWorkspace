@@ -140,3 +140,8 @@ php -S 127.0.0.1:8252 -t .
 
 #42 check apt update history
 ~$ less /var/log/apt/history.log
+
+#43. List top 10 commands in history
+# ref. http://www.commandlinefu.com/commands/view/12470/statistic-of-the-frequnce-of-your-command-from-your-history
+~$ history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10
+
