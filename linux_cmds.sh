@@ -145,6 +145,6 @@ php -S 127.0.0.1:8252 -t .
 # ref. http://www.commandlinefu.com/commands/view/12470/statistic-of-the-frequnce-of-your-command-from-your-history
 ~$ history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10
 
-#44. skype for linua
+#44. skype for linux
 # no gpu 
 ~$ skypeforlinux --disable-gpu --enable-lcd-text
