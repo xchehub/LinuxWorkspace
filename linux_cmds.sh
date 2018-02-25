@@ -148,3 +148,23 @@ php -S 127.0.0.1:8252 -t .
 #44. skype for linux
 # no gpu 
 ~$ skypeforlinux --disable-gpu --enable-lcd-text
+
+#45. pipe viewer
+~$ pv access.log | gzip > access.log.gz
+~$ pv -cN source access.log | gzip | pv -cN gzip > access.log.gz
+~$ tar -czf - . | pv > out.tgz
+~$ tar -cf - . | pv -s $(du -sb . | awk '{print $1}') | gzip > out.tgz
+~$ dd if=/dev/zero | pv | dd of=/dev/null
+~$ dd if=/dev/disk2 | pv | pv -cN gzip > disk.gz
+~$ pv /dev/zero > /dev/null
+# transfer file between 2 PCs
+# PC A
+~$ tar cf a.file | pv | nc -l -p 6969 -q 5
+# PC B
+~$ nc 192.168.1.0 6969 | pv | tar xf a.file
+# transfert directory
+# on computer A, with IP address 192.168.1.100
+~$ tar -cf - /path/to/dir | pv | nc -l -p 6666 -q 5
+# on computer B
+~$ nc 192.168.1.100 6666 | pv | tar -xf -
+
