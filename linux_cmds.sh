@@ -168,3 +168,13 @@ php -S 127.0.0.1:8252 -t .
 # on computer B
 ~$ nc 192.168.1.100 6666 | pv | tar -xf -
 
+#46. cURL
+~$ curl someurl.com # if the host cannot connect, you will ther error message.
+~$ curl -v someurl.com # display response and request header
+~$ curl curl –-limit-rate 2000B https://someurl.com # limit download rate
+~$ curl --proxy someproxy:port https://someurl.com # useong a proxy
+~$ 
+
+#47. dig
+
+
