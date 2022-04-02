@@ -146,11 +146,11 @@ php -S 127.0.0.1:8252 -t .
 # ref. http://www.commandlinefu.com/commands/view/12470/statistic-of-the-frequnce-of-your-command-from-your-history
 ~$ history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10
 
-#44. skype for linux
+# 44. skype for linux
 # no gpu 
 ~$ skypeforlinux --disable-gpu --enable-lcd-text
 
-#45. pipe viewer
+# 45. pipe viewer
 ~$ pv access.log | gzip > access.log.gz
 ~$ pv -cN source access.log | gzip | pv -cN gzip > access.log.gz
 ~$ tar -czf - . | pv > out.tgz
@@ -169,13 +169,15 @@ php -S 127.0.0.1:8252 -t .
 # on computer B
 ~$ nc 192.168.1.100 6666 | pv | tar -xf -
 
-#46. cURL
+# 46. cURL
 ~$ curl someurl.com # if the host cannot connect, you will ther error message.
 ~$ curl -v someurl.com # display response and request header
 ~$ curl curl –-limit-rate 2000B https://someurl.com # limit download rate
 ~$ curl --proxy someproxy:port https://someurl.com # useong a proxy
 ~$ 
 
-#47. dig
+# 47. dig
 
+# 48. find folder and remove
+~$ find ./ -type d -name node_modules -exec rm -rf {} \;
 
