@@ -181,3 +181,5 @@ php -S 127.0.0.1:8252 -t .
 # 48. find folder and remove
 ~$ find ./ -type d -name node_modules -exec rm -rf {} \;
 
+# 49. find files and copy
+~$ find ./ -type f -name "*.app" -exec cp {} /tmp/somefolder \;
