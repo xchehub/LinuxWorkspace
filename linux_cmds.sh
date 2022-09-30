@@ -183,3 +183,7 @@ php -S 127.0.0.1:8252 -t .
 
 # 49. find files and copy
 ~$ find ./ -type f -name "*.app" -exec cp {} /tmp/somefolder \;
+
+# 50. pipe commands to a telnet session
+## it needs to osleep few milliseconds to wait foe the coommand completed.
+`~$ eval "{ echo user_name; sleep 1; echo pass; sleep 1; echo '?'; sleep 5; }" | telnet host_address`
