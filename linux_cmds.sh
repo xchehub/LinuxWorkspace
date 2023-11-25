@@ -187,3 +187,21 @@ php -S 127.0.0.1:8252 -t .
 # 50. pipe commands to a telnet session
 ## it needs to osleep few milliseconds to wait foe the coommand completed.
 `~$ eval "{ echo user_name; sleep 1; echo pass; sleep 1; echo '?'; sleep 5; }" | telnet host_address`
+
+# 51. generate random number
+~$ echo $RANDOM
+~$ echo $(($RANDOM%10))
+## between x to y
+### RANGE=$((Y-X+1))
+### RANDOM=$$
+### R=$(($(($RANDOM%$RANGE))+X))
+```shell
+echo "upper bounds:"
+read X
+echo "lower bounds:"
+read Y
+RANGE=$((Y-X+1))
+RANDOM=$$
+R=$(($(($RANDOM%$RANGE))+X))
+echo "The random integer is $R"
+```
