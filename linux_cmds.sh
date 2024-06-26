@@ -45,8 +45,8 @@
 #14. Top 10 files pass the output to the head command
 ~$ du -h -d1 | sort -hr | head
 
-#15. Linux讓記錄檔內容歸零的方法
-#如果要將記錄內容清空，移除再建立是一個方法，但不是很好的方法，可以採用下面這個指令
+#15. Linuxto empty the contents of a log file
+#If you want to empty a log, removing it and recreating it is one way, but not a very good one, you can use the following command
 ~$ cat /dev/null > /var/log/log_filename
 
 #16 get svn log information
@@ -205,3 +205,9 @@ RANDOM=$$
 R=$(($(($RANDOM%$RANGE))+X))
 echo "The random integer is $R"
 ```
+# 52. get text from line1 to line2
+~$ sed -n '123, 124p' mytext.log
+# -n: tells sed does not print lines scanned.
+# 123,234: define the range of lines we are interested in
+# p: print lines.
+
